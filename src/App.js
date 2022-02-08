@@ -1,12 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-// components
-import { AudioPlayer } from './components/AudioPlayer';
+// pages
+import Landing from './pages/Landing';
+
 
 function App() {
   return (
     <div className="App">
-      <AudioPlayer />
+      <Landing />
     </div>
   );
 }
