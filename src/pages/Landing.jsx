@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 // components
-import MusicCard from '../components/MusicCard';
+import MusicCard from '../components/sections/Music';
 import Header from '../components/sections/Hero';
 import NavBar from '../components/sections/NavBar';
+import Player from '../components/audio/Player';
+// audio
+import audio from '../components/audio/so what.mp3'
+
 
 export default function Landing() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <div>
             <NavBar />
             <Header />
-            <MusicCard />
+            <MusicCard url={audio} />
         </div>
 
     );
