@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // assets
 import PlayBtn from "../../assets/svg/PlayBtn";
 import PauseBtn from "../../assets/svg/PauseBtn";
+import zuu from './ZUU.mp3';
 
 const useAudio = url => {
     const [audio] = useState(new Audio(url));
@@ -11,9 +12,7 @@ const useAudio = url => {
 
     useEffect(() => {
         playing ? audio.play() : audio.pause();
-    },
-        [playing]
-    );
+    }, [playing]);
 
     useEffect(() => {
         audio.addEventListener('ended', () => setPlaying(false));
@@ -26,6 +25,7 @@ const useAudio = url => {
 };
 
 const Player = ({ url }) => {
+    let audio = new Audio(url);
     const [playing, toggle] = useAudio(url);
 
     return (

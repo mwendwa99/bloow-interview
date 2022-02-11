@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import event from "events"
 // assets
-import Player from "../audio/Player";
+import Player from "../Audio/Player";
+// import audio from '../audio/so what.mp3'
+
+// const jsmediatags = window.jsmediatags;
+// document.querySelector("#input").addEventListener("change", function () {
+//     const file = event.target.files[0];
+
+//     jsmediatags.read(file, {
+//         onSuccess: function (tag) {
+//             console.log(tag);
+//         },
+//         onError: function (error) {
+//             console.log(error);
+//         }
+//     }
+//     );
+// });
 
 
 const MusicCard = ({ url }) => (
+    // return (
     <section className="grid place-items-center h-full bg-gray-800 p-5">
         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white md:text-6xl">
             popular releases
         </h1>
+        {/* <TestAudio /> */}
+
         <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {/* CARD 1 */}
             <div className="bg-gray-900 shadow-lg rounded p-3">
@@ -165,6 +185,6 @@ const MusicCard = ({ url }) => (
             {/* END OF CARD 3 */}
         </section>
     </section>
-)
+);
 
 export default MusicCard;

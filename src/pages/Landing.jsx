@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 // components
-import MusicCard from '../components/sections/Music';
-import Header from '../components/sections/Hero';
-import NavBar from '../components/sections/NavBar';
-import Player from '../components/audio/Player';
+import MusicCard from '../components/Sections/Music';
+import Header from '../components/Sections/Hero';
+import NavBar from '../components/Sections/NavBar';
+import UploadButton from '../components/Buttons/UploadButton';
 // audio
-import audio from '../components/audio/so what.mp3'
+import audiofile from '../components/Audio/ZUU.mp3'
 
 
 export default function Landing() {
+
+    // add audio to array
+    const [audio] = useState(new Audio(audiofile));
+    // console.log('audio', audio);
 
     return (
         <div>
             <NavBar />
             <Header />
-            <MusicCard url={audio} />
+            <MusicCard url={audiofile} />
+            <UploadButton />
         </div>
 
     );
