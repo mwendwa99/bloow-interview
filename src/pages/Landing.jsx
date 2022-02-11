@@ -5,20 +5,20 @@ import Header from '../components/Sections/Hero';
 import NavBar from '../components/Sections/NavBar';
 import UploadButton from '../components/Buttons/UploadButton';
 // audio
-import audiofile from '../components/Audio/ZUU.mp3'
+import defaultSong1 from '../assets/audio/defaultSong1.mp3'
 
 
 export default function Landing() {
 
     // add audio to array
-    const [audio] = useState(new Audio(audiofile));
+    const [audio] = useState(new Audio(defaultSong1));
     // console.log('audio', audio);
 
     return (
         <div>
             <NavBar />
             <Header />
-            <MusicCard url={audiofile} />
+            <MusicCard url={defaultSong1} />
             <UploadButton />
         </div>
 

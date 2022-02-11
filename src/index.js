@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { MusicProvider } from './provider/MusicProvider';
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <MusicProvider>
     <App />
-  </React.StrictMode>,
+  </MusicProvider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
