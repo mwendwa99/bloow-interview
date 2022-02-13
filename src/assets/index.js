@@ -2,4 +2,5 @@
 export default {
     landing: require('./landing.png'),
     logo: require('./logo.png'),
+    login: require('./login.png'),
 }

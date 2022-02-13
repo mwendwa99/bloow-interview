@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 // assets
 import images from '../../assets';
 
 export default function NavBar() {
+    const navigate = useNavigate();
+
     return (
         <header className="text-gray-400 bg-gray-900 body-font">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -13,7 +16,7 @@ export default function NavBar() {
                     />
                     <span className="ml-3 text-xl">Music.io</span>
                 </a>
-                <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <nav onClick={() => navigate('/signin')} className="md:ml-auto flex flex-wrap items-center text-base justify-center">
                     <a className="mr-5 cursor-pointer hover:text-white">Sign in</a>
                 </nav>
                 <button className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none 
