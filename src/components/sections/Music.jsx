@@ -17,7 +17,7 @@ const MusicCard = ({ url }) => {
                 {
                     defaultMusic.map((music, index) =>
                         // return (
-                        <div className="bg-gray-900 shadow-lg rounded p-3">
+                        <div key={index} className="bg-gray-900 shadow-lg rounded p-3">
                             <div className="group relative">
                                 <img
                                     className="w-full md:w-72 block rounded"

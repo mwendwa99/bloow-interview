@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // assets
 import assets from '../assets';
 
 export const SignUp = () => {
     const navigate = useNavigate();
+    const [values, setValues] = useState({
+        email: '',
+        password: '',
+    });
+
+    const { email, password } = values;
+
+    const handleChange = name => e => {
+        setValues({
+            ...values,
+            [name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setValues({ ...values });
+        console.log(values);
+        // navigate('/signin');
+    };
+
 
     return (
-        <div>
+        <div className="h-screen">
             {/* component */}
             {/* This is an example component */}
             <link
@@ -20,7 +41,7 @@ export const SignUp = () => {
                         <img src={assets.login} alt="login" />
                     </div>
                     <h1 className="font-bold my-5 text-2xl text-white"> Sign up</h1>
-                    <form action="" className="mt-2 flex flex-col lg:w-1/2 w-8/12">
+                    <form onSubmit={handleSubmit} className="mt-2 flex flex-col lg:w-1/2 w-8/12">
                         <div className="flex flex-wrap w-full relative h-15 bg-white items-center rounded-full mb-6 pr-10">
                             <div className="flex -mr-px justify-center w-15 p-4">
                                 <span className="flex items-center leading-normal bg-white px-3 border-0 rounded text-2xl text-gray-600">
@@ -30,7 +51,10 @@ export const SignUp = () => {
                             <input
                                 type="text"
                                 className="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border-0 h-10 border-grey-light rounded rounded-l-none px-3 self-center relative  font-roboto text-xl outline-none"
-                                placeholder="Username"
+                                placeholder="Email"
+                                value={email}
+                                onChange={handleChange('email')}
+                                autoComplete="email"
                             />
                         </div>
                         <div className="flex flex-wrap w-full relative h-15 bg-white items-center rounded-full mb-6 pr-10">
@@ -43,6 +67,9 @@ export const SignUp = () => {
                                 type="password"
                                 className="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border-0 h-10 border-grey-light rounded rounded-l-none px-3 self-center relative  font-roboto text-xl outline-none"
                                 placeholder="Password"
+                                value={password}
+                                onChange={handleChange('password')}
+                                autoComplete="password"
                             />
                         </div>
                         <a
@@ -51,12 +78,11 @@ export const SignUp = () => {
                         >
                             Already have an Account?
                         </a>
-                        <a
-                            href="/"
+                        <button type="submit"
                             className="bg-pink-500 hover:bg-pink-600 py-4 text-center px-17 md:px-12 md:py-4 text-white rounded-full leading-tight text-xl md:text-base font-sans mt-4 mb-20"
                         >
                             Register
-                        </a>
+                        </button>
                     </form>
                 </div>
             </div>

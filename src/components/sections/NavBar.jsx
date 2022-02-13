@@ -19,7 +19,7 @@ export default function NavBar() {
                 <nav onClick={() => navigate('/signin')} className="md:ml-auto flex flex-wrap items-center text-base justify-center">
                     <a className="mr-5 cursor-pointer hover:text-white">Sign in</a>
                 </nav>
-                <button className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none 
+                <button onClick={() => navigate('/signup')} className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none 
                 hover:bg-pink-600 hover:text-white rounded-full text-base mt-4 md:mt-0">
                     Sign up
                 </button>

@@ -19,7 +19,7 @@ const UploadButton = () => {
     const handleChange = (e) => {
         const file = e.target.files[0];
 
-        console.log('FAIRO', file);
+        // console.log('FAIRO', file);
 
         jsmediatags.read(file, {
             onSuccess: function (tag) {
@@ -42,7 +42,7 @@ const UploadButton = () => {
     };
 
 
-    console.log('track', track);
+    // console.log('track', track);
     // console.log('trackList', trackList);
 
 

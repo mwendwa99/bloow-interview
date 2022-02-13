@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { MusicContext } from './context';
 import defaultSong1 from '../assets/audio/defaultSong1.mp3';
 import defaultSong2 from '../assets/audio/defaultSong2.mp3';
 import defaultSong3 from '../assets/audio/defaultSong3.mp3';
 
-const jsmediatags = window.jsmediatags;
+const MusicContext = React.createContext();
 
 // create music context
 export const MusicProvider = ({ children }) => {
