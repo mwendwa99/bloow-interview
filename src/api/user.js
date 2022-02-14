@@ -4,15 +4,21 @@ import { app } from '../firebase-config';
 import { toast } from 'react-toastify';
 const auth = getAuth(app);
 
-export const signIn = async (email, password) => {
+export const signIn = async (values) => {
+    let email = values.email;
+    let password = values.password;
+
     try {
         await signInWithEmailAndPassword(auth, email, password)
             .then(() => {
                 console.log('Signed in successfully!');
                 toast.success('Signed in successfully!');
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 1000);
             })
             .catch((error) => {
-                console.log('failed to sign in');
+                console.log('failed to sign in', error);
                 toast.error('failed to sign in');
             });
     } catch (error) {
@@ -20,16 +26,20 @@ export const signIn = async (email, password) => {
     }
 };
 
-export const signUp = async (email, password) => {
+export const signUp = async (values) => {
+    let email = values.email;
+    let password = values.password;
     try {
         await createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
                 console.log('Signed up successfully!');
-                toast.success('Signed up successfully!');
+                toast.success(`${email} signed up successfully!`);
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 1000);
             })
             .catch((error) => {
-                console.log('failed to sign up');
-                toast.error('failed to sign up');
+                toast.error(`error: ${error.code}`);
             });
     } catch (error) {
         console.log(error);

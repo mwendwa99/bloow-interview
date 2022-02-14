@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // assets
 import assets from '../assets';
+// context
+import { signUp } from '../api/user';
 
 export const SignUp = () => {
     const navigate = useNavigate();
@@ -22,7 +24,8 @@ export const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setValues({ ...values });
-        console.log(values);
+        signUp(values)
+        // console.log(values);
         // navigate('/signin');
     };
 

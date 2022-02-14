@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MusicProvider } from './provider/MusicProvider';
 import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './provider/AuthProvider';
 
 ReactDOM.render(
   // <React.StrictMode>
   <BrowserRouter>
-    <MusicProvider>
-      <App />
-    </MusicProvider>
+    <AuthProvider>
+      <MusicProvider>
+        <App />
+      </MusicProvider>
+    </AuthProvider>
   </BrowserRouter>,
   // </React.StrictMode>,
   document.getElementById('root')
