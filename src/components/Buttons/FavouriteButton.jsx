@@ -8,9 +8,11 @@ export default function FavouriteButton({ isFavourite, handleClick }) {
         <div className="flex justify-center items-center" onClick={handleClick} >
             {
                 isFavourite ?
-                    <FavouriteFilled />
+                    <FavouriteFilled width={40}
+                        height={40} />
                     :
-                    <FavouriteOutlined />
+                    <FavouriteOutlined width={40}
+                        height={40} />
             }
         </div>
     );

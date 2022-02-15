@@ -3,8 +3,8 @@ import * as React from "react"
 const FavouriteOutlined = (props) => (
     <svg
         style={{
-            width: 24,
-            height: 24,
+            width: 40,
+            height: 40,
         }}
         viewBox="0 0 24 24"
         {...props}

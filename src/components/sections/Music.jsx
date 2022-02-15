@@ -7,12 +7,12 @@ import { useMusic } from "../../provider/MusicProvider";
 
 const MusicCard = () => {
     const { defaultMusic, isFavourite, handleIsFavourite } = useMusic();
-    console.log('def', isFavourite);
+    console.log('before toggle', isFavourite);
 
     const toggleFavourite = (id) => {
         // change favourite state of music at id
         handleIsFavourite(id);
-
+        console.log('after toggle', isFavourite);
     }
 
     return (
@@ -38,6 +38,8 @@ const MusicCard = () => {
                                         <FavouriteButton
                                             isFavourite={music.favourite}
                                             handleClick={() => toggleFavourite(music.id)}
+                                            width={40}
+                                            height={40}
                                         />
                                     </div>
                                     <div className="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
@@ -47,7 +49,7 @@ const MusicCard = () => {
                                             height={40}
                                         />
                                     </div>
-                                    <button className="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
+                                    {/* <button className="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width={20}
@@ -58,7 +60,7 @@ const MusicCard = () => {
                                         >
                                             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                                         </svg>
-                                    </button>
+                                    </button> */}
                                 </div>
                             </div>
                             <div className="p-5">

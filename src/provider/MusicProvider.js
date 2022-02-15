@@ -82,31 +82,30 @@ export const MusicProvider = ({ children }) => {
     };
 
     const handleIsFavourite = (id) => {
-        // change default music at index to false
         if (user) {
-            if (isFavourite) {
-                // remove favourite
-                const newDefaultMusic = defaultMusic.map((music) => {
-                    if (music.id === id) {
-                        music.favourite = false;
-                    }
-                    return music;
-                });
-                setDefaultMusic(newDefaultMusic);
-                setIsFavourite(false);
-                toast.success('Removed from favourites');
-            } else {
-                // add favourite
-                const newDefaultMusic = defaultMusic.map((music) => {
-                    if (music.id === id) {
-                        music.favourite = true;
-                    }
-                    return music;
-                });
-                setDefaultMusic(newDefaultMusic);
-                setIsFavourite(true);
-                toast.success('Added to favourites');
-            }
+            // change default music at index to false
+            const newDefaultMusic = defaultMusic.map((music) => {
+                if (music.id === id) {
+                    music.favourite = !music.favourite;
+                }
+                return music;
+            });
+            setDefaultMusic(newDefaultMusic);
+            // save to local storage
+            localStorage.setItem('defaultMusic', JSON.stringify(newDefaultMusic));
+
+            // change music at index to false
+            const newMusic = music.map((music) => {
+                if (music.id === id) {
+                    music.favourite = !music.favourite;
+                }
+                return music;
+            });
+            setMusic(newMusic);
+            setIsFavourite(!isFavourite);
+            // save to local storage
+            localStorage.setItem('music', JSON.stringify(newMusic));
+
         } else {
             toast.error('You must be logged in to add to favourites');
         }
