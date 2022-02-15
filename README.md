@@ -25,4 +25,4 @@ Open the browser and go to https://localhost:3000
 Enjoy!
 
 ## License
-See License.md
+See [license.md](license.md)
