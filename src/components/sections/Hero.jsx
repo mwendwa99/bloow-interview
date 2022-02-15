@@ -1,11 +1,13 @@
 import React from 'react';
-import assets from '../../assets';
+// rrdv6
+import { useNavigate } from 'react-router-dom';
 // assets
-import '../../assets';
+import assets from '../../assets';
 
 export default function Header() {
+    const navigate = useNavigate();
+
     return (
-        // <main className="h-screen">
         <section className="text-gray-400 h-full bg-gray-900 body-font">
             <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
                 <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
@@ -22,11 +24,18 @@ export default function Header() {
                         There Is No Sore It Will Not Heal, No App It Will Not Subdue.
                     </p>
                     <div className="flex justify-center">
-                        <button className="inline-flex text-white rounded-full bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 text-lg">
+                        <button onClick={() => navigate('/signup')} className="inline-flex text-white rounded-full bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 text-lg">
                             Get Started
                         </button>
-                        <button className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded-full text-lg">
-                            Learn More
+                        <button
+                            // onclick scroll down
+                            onClick={
+                                // window scroll
+                                () => window.scrollBy({ top: window.innerHeight - 20, left: 0, behavior: 'smooth' })
+                            }
+
+                            className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded-full text-lg">
+                            Explore
                         </button>
                     </div>
                 </div>
@@ -39,6 +48,5 @@ export default function Header() {
                 </div>
             </div>
         </section>
-        // </main>
     )
 }
