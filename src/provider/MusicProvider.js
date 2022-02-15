@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+// user
+import { useAuth } from './AuthProvider';
+// assets
 import defaultSong1 from '../assets/audio/defaultSong1.mp3';
 import defaultSong2 from '../assets/audio/defaultSong2.mp3';
 import defaultSong3 from '../assets/audio/defaultSong3.mp3';
@@ -7,6 +11,7 @@ const MusicContext = React.createContext();
 
 // create music context
 export const MusicProvider = ({ children }) => {
+    const { user } = useAuth();
     const [defaultMusic, setDefaultMusic] = useState([]);
     const [music, setMusic] = useState([]);
     const [currentMusic, setCurrentMusic] = useState(null);
@@ -78,19 +83,35 @@ export const MusicProvider = ({ children }) => {
 
     const handleIsFavourite = (id) => {
         // change default music at index to false
-        const newDefaultMusic = defaultMusic.map((music) => {
-            if (music.id === id) {
-                return {
-                    ...music,
-                    favourite: !music.favourite,
-                };
+        if (user) {
+            if (isFavourite) {
+                // remove favourite
+                const newDefaultMusic = defaultMusic.map((music) => {
+                    if (music.id === id) {
+                        music.favourite = false;
+                    }
+                    return music;
+                });
+                setDefaultMusic(newDefaultMusic);
+                setIsFavourite(false);
+                toast.success('Removed from favourites');
+            } else {
+                // add favourite
+                const newDefaultMusic = defaultMusic.map((music) => {
+                    if (music.id === id) {
+                        music.favourite = true;
+                    }
+                    return music;
+                });
+                setDefaultMusic(newDefaultMusic);
+                setIsFavourite(true);
+                toast.success('Added to favourites');
             }
-            return music;
+        } else {
+            toast.error('You must be logged in to add to favourites');
         }
-        );
-        setDefaultMusic(newDefaultMusic);
-
     };
+
 
     return (
         <MusicContext.Provider value={{

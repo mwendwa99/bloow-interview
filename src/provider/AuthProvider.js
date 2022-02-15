@@ -17,13 +17,6 @@ const AuthProvider = ({ children }) => {
             setUser(user);
         });
 
-        // // if user is authenticated go to homepage
-        // if (user) {
-        //     navigate('/dashboard')
-        // }
-        // if (!user) {
-        //     navigate('/signin')
-        // }
         return () => unsubscribe();
     }, [user, navigate]);
 
