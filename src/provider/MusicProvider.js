@@ -13,6 +13,7 @@ export const MusicProvider = ({ children }) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
     const [isStopped, setIsStopped] = useState(false);
+    const [isFavourite, setIsFavourite] = useState(false);
 
     useEffect(() => {
         setDefaultMusic([
@@ -24,6 +25,7 @@ export const MusicProvider = ({ children }) => {
                 duration: '003:33',
                 src: defaultSong1,
                 cover: 'https://images.genius.com/3a5cbdd2cade95de8a3af8e29c1d33f9.1000x1000x1.png',
+                favourite: isFavourite,
             },
             {
                 id: 2,
@@ -33,6 +35,7 @@ export const MusicProvider = ({ children }) => {
                 duration: '03:48',
                 src: defaultSong2,
                 cover: 'https://images.squarespace-cdn.com/content/v1/5a7a2870f14aa1ea4fb3ade9/1555250171134-VTBB87AYQN4OAN9X7AIN/Lucy-album-cover-4-880x880.jpg?format=750w',
+                favourite: isFavourite,
             },
             {
                 id: 3,
@@ -42,6 +45,7 @@ export const MusicProvider = ({ children }) => {
                 duration: '02:06',
                 src: defaultSong3,
                 cover: 'https://t2.genius.com/unsafe/597x0/https%3A%2F%2Fimages.genius.com%2F86e21c57ddf05f2cf02a69f8a77255d3.1000x1000x1.png',
+                favourite: isFavourite,
             },
         ]);
     }, []);
@@ -72,6 +76,22 @@ export const MusicProvider = ({ children }) => {
         setIsStopped(isStopped);
     };
 
+    const handleIsFavourite = (id) => {
+        // change default music at index to false
+        const newDefaultMusic = defaultMusic.map((music) => {
+            if (music.id === id) {
+                return {
+                    ...music,
+                    favourite: !music.favourite,
+                };
+            }
+            return music;
+        }
+        );
+        setDefaultMusic(newDefaultMusic);
+
+    };
+
     return (
         <MusicContext.Provider value={{
             defaultMusic,
@@ -83,7 +103,9 @@ export const MusicProvider = ({ children }) => {
             isPaused,
             handleIsPaused,
             isStopped,
-            handleIsStopped
+            handleIsStopped,
+            isFavourite,
+            handleIsFavourite,
         }}>
             {children}
         </MusicContext.Provider>

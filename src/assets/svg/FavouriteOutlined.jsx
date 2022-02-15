@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const FavouriteOutline = (props) => (
+const FavouriteOutlined = (props) => (
     <svg
         style={{
             width: 24,
@@ -16,4 +16,4 @@ const FavouriteOutline = (props) => (
     </svg>
 )
 
-export default FavouriteOutline
+export default FavouriteOutlined
