@@ -6,7 +6,7 @@ import FavouriteButton from "../Buttons/FavouriteButton";
 import { useMusic } from "../../provider/MusicProvider";
 
 const MusicCard = () => {
-    const { defaultMusic, isFavourite, handleIsFavourite } = useMusic();
+    const { defaultMusic, handleIsFavourite } = useMusic();
     // console.log('before toggle', isFavourite);
 
     const toggleFavourite = (id) => {

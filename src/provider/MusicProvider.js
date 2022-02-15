@@ -119,15 +119,6 @@ export const MusicProvider = ({ children }) => {
         // save to local storage
         localStorage.setItem('music', JSON.stringify(music));
     };
-    // // if music is not empty
-    // if (music) {
-    //     // set music
-    //     setMusic([...music]);
-    //     // save to local storage
-    //     localStorage.setItem('music', JSON.stringify(music));
-    // }
-    // };
-
     // delete music
     const deleteMusic = (id) => {
         // if music is not empty

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 // assets
 import PlusButton from '../../assets/svg/PlusButton';
 // context
@@ -25,8 +25,6 @@ const UploadButton = () => {
                     image: tag.tags.picture,
                     src: URL.createObjectURL(file),
                     favourite: false,
-                    audio: new Audio(URL.createObjectURL(file)),
-                    file: file
                 });
             },
             onError: function (error) {
@@ -35,7 +33,7 @@ const UploadButton = () => {
         });
     };
 
-    console.log('music', music);
+    // console.log('music', music);
 
 
     return (
