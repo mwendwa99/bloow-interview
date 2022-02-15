@@ -1,9 +1,9 @@
-Copyright (C) 2022 {Brian Mwendwa} <{brianmwendwa.mu@gmail.com}>
+Copyright (C) 2022 [Brian Mwendwa](https://github.com/mwendwa99) <brianmwendwa.mu@gmail.com>
 
-This file is part of the {project name} project.
+This file is part of the [bloow-interview](https://github.com/mwendwa99/bloow-interview) project.
 
-The {bloow-interview} project can not be copied and/or distributed without the express
-permission of {Brian Mwendwa} <{brianmwendwa.mu@gmail.com}>.
+The [bloow-interview](https://github.com/mwendwa99/bloow-interview) project can not be copied and/or distributed without the express
+permission of {Brian Mwendwa} <brianmwendwa.mu@gmail.com>.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
