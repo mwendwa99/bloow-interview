@@ -4,9 +4,7 @@ import MusicCard from '../components/Sections/Music';
 import Header from '../components/Sections/Hero';
 import NavBar from '../components/Sections/NavBar';
 import UploadButton from '../components/Buttons/UploadButton';
-// audio
-import defaultSong1 from '../assets/audio/defaultSong1.mp3'
-
+import UserMusic from '../components/Sections/UserMusic';
 
 export default function Landing() {
 
@@ -14,8 +12,9 @@ export default function Landing() {
         <div>
             <NavBar />
             <Header />
-            <MusicCard url={defaultSong1} />
+            <MusicCard />
             <UploadButton />
+            <UserMusic />
         </div>
 
     );

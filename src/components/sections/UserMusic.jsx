@@ -1,50 +1,42 @@
 import React from "react";
-// assets
-import Player from "../Player/Player";
-import FavouriteButton from "../Buttons/FavouriteButton";
-// music default
+// context
 import { useMusic } from "../../provider/MusicProvider";
+import FavouriteButton from "../Buttons/FavouriteButton";
+import Player from "../Player/Player";
 
-const MusicCard = () => {
-    const { defaultMusic, isFavourite, handleIsFavourite } = useMusic();
-    // console.log('before toggle', isFavourite);
-
-    const toggleFavourite = (id) => {
-        // change favourite state of music at id
-        handleIsFavourite(id);
-        // console.log('after toggle', isFavourite);
-    }
-
+export default function UserMusic() {
+    // const { music } = useMusic();
+    let arr = [];
     return (
         <section className="grid place-items-center h-full bg-gray-800 p-5">
             <h3 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white md:text-5xl">
-                popular releases
+                your uploads
             </h3>
             <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {/* CARD 1 */}
                 {
-                    defaultMusic.map((item) =>
+                    arr.map((music) =>
                         // return (
-                        <div key={item.id} className="bg-gray-900 shadow-lg rounded p-3">
+                        <div key={music.id} className="bg-gray-900 shadow-lg rounded p-3">
                             <div className="group relative">
                                 <img
                                     className="w-full md:w-72 block rounded"
-                                    src={item.cover}
+                                    src={music.cover}
                                     alt=""
                                 />
                                 <div className="absolute bg-black rounded bg-opacity-0 group-hover:bg-opacity-60 w-full h-full top-0 flex items-center group-hover:opacity-100 transition justify-evenly">
                                     <div className="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
                                         {/* <FavouriteButton isFavourite={isFavourite} handleClick={toggleFavourite} /> */}
                                         <FavouriteButton
-                                            isFavourite={item.favourite}
-                                            handleClick={() => toggleFavourite(item.id)}
+                                            isFavourite={music.favourite}
+                                            // handleClick={() => toggleFavourite(music.id)}
                                             width={40}
                                             height={40}
                                         />
                                     </div>
                                     <div className="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
                                         <Player
-                                            url={item.src}
+                                            url={music.src}
                                             width={40}
                                             height={40}
                                         />
@@ -64,8 +56,8 @@ const MusicCard = () => {
                                 </div>
                             </div>
                             <div className="p-5">
-                                <h3 className="text-white text-lg">{item.title}</h3>
-                                <p className="text-gray-400">{item.artist}</p>
+                                <h3 className="text-white text-lg">{music.title}</h3>
+                                <p className="text-gray-400">{music.artist}</p>
                             </div>
                         </div>
                         // )
@@ -75,5 +67,3 @@ const MusicCard = () => {
         </section>
     );
 }
-
-export default MusicCard;

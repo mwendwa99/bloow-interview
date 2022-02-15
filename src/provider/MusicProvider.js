@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// toast
 import { toast } from 'react-toastify';
 // user
 import { useAuth } from './AuthProvider';
@@ -56,13 +57,13 @@ export const MusicProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        fetch('https://api.myjson.com/bins/1h2q4i')
-            .then(res => res.json())
-            .then(data => {
-                setMusic(data);
-                setCurrentMusic(data[0]);
-            })
-            .catch(err => console.log(err));
+        // get music from local storage
+        const music = JSON.parse(localStorage.getItem('music'));
+        // if music is not empty
+        if (music) {
+            // set music
+            setMusic(music);
+        }
     }, []);
 
     const handleCurrentMusic = (music) => {
@@ -111,11 +112,40 @@ export const MusicProvider = ({ children }) => {
         }
     };
 
+    // upload music
+    const uploadMusic = (userMusic) => {
+        // add music to music array
+        setMusic([...music, userMusic]);
+        // save to local storage
+        localStorage.setItem('music', JSON.stringify(music));
+    };
+    // // if music is not empty
+    // if (music) {
+    //     // set music
+    //     setMusic([...music]);
+    //     // save to local storage
+    //     localStorage.setItem('music', JSON.stringify(music));
+    // }
+    // };
+
+    // delete music
+    const deleteMusic = (id) => {
+        // if music is not empty
+        if (music) {
+            // set music
+            const newMusic = music.filter((music) => music.id !== id);
+            setMusic(newMusic);
+            // save to local storage
+            localStorage.setItem('music', JSON.stringify(newMusic));
+        }
+    };
 
     return (
         <MusicContext.Provider value={{
-            defaultMusic,
             music,
+            uploadMusic,
+            deleteMusic,
+            defaultMusic,
             currentMusic,
             handleCurrentMusic,
             isPlaying,
