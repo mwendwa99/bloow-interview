@@ -25,20 +25,18 @@ export const SignUp = () => {
         e.preventDefault();
         setValues({ ...values });
         signUp(values)
-        // console.log(values);
-        // navigate('/signin');
     };
 
 
     return (
-        <div className="h-screen">
+        <div className="h-full">
             {/* component */}
             {/* This is an example component */}
             <link
                 rel="stylesheet"
                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
             />
-            <div className="text-gray-400 h-screen w-full bg-gray-900 body-font flex">
+            <div className="text-gray-400 h-full w-full bg-gray-900 body-font flex">
                 <div className="flex-col flex ml-auto mr-auto items-center w-full lg:w-2/3 md:w-3/5">
                     <div onClick={() => navigate('/')} className="flex items-center hover:motion-safe:animate-pulse hover:cursor-pointer h-64 w-64">
                         <img src={assets.login} alt="login" />

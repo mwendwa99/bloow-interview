@@ -10,7 +10,7 @@ import assets from "../../assets";
 
 export default function UserMusic() {
     const { music, handleIsFavourite, deleteMusic } = useMusic();
-    console.log("music", music);
+    // console.log("music", music);
 
     const toggleFavourite = (id) => {
         // change favourite state of music at id

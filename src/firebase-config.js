@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDQiGkH0oYALVSB0_J9rKdneQ50cIhgbwQ",
-    authDomain: "bloow-interview.firebaseapp.com",
-    projectId: "bloow-interview",
-    storageBucket: "bloow-interview.appspot.com",
-    messagingSenderId: "527010075730",
-    appId: "1:527010075730:web:e2a50517c4286a6c917b8b"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN,
+    projectId: process.env.REACT_APP_PROJECTID,
+    storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+    appId: process.env.REACT_APP_APPID
 };
 
 // Initialize Firebase
