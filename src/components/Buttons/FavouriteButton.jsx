@@ -3,16 +3,16 @@ import React from "react";
 import FavouriteFilled from "../../assets/svg/FavouriteFilled";
 import FavouriteOutlined from '../../assets/svg/FavouriteOutlined';
 
-export default function FavouriteButton({ isFavourite, handleClick }) {
+export default function FavouriteButton({ isFavourite, handleClick, width, height }) {
     return (
         <div className="flex justify-center items-center" onClick={handleClick} >
             {
                 isFavourite ?
-                    <FavouriteFilled width={40}
-                        height={40} />
+                    <FavouriteFilled width={width}
+                        height={height} />
                     :
-                    <FavouriteOutlined width={40}
-                        height={40} />
+                    <FavouriteOutlined width={width}
+                        height={height} />
             }
         </div>
     );

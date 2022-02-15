@@ -38,29 +38,17 @@ const MusicCard = () => {
                                         <FavouriteButton
                                             isFavourite={item.favourite}
                                             handleClick={() => toggleFavourite(item.id)}
-                                            width={40}
-                                            height={40}
+                                            width={24}
+                                            height={24}
                                         />
                                     </div>
                                     <div className="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
                                         <Player
                                             url={item.src}
-                                            width={40}
-                                            height={40}
+                                            width={24}
+                                            height={24}
                                         />
                                     </div>
-                                    {/* <button className="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width={20}
-                                            height={20}
-                                            fill="currentColor"
-                                            className="bi bi-three-dots"
-                                            viewBox="0 0 16 16"
-                                        >
-                                            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                                        </svg>
-                                    </button> */}
                                 </div>
                             </div>
                             <div className="p-5">

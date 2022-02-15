@@ -9,7 +9,7 @@ import Player from "../Player/Player";
 import assets from "../../assets";
 
 export default function UserMusic() {
-    const { music, handleIsFavourite } = useMusic();
+    const { music, handleIsFavourite, deleteMusic } = useMusic();
     console.log("music", music);
 
     const toggleFavourite = (id) => {
@@ -17,6 +17,13 @@ export default function UserMusic() {
         handleIsFavourite(id);
         // console.log('after toggle', isFavourite);
     }
+
+    const handleDelete = (id) => {
+        console.log("id", id);
+        // delete music at id
+        deleteMusic(id);
+    }
+
 
     return (
         <section className="grid place-items-center h-full bg-gray-800 p-5">
@@ -41,21 +48,22 @@ export default function UserMusic() {
                                         <FavouriteButton
                                             isFavourite={music.favourite}
                                             handleClick={() => toggleFavourite(music.id)}
-                                            width={40}
-                                            height={40}
+                                            width={24}
+                                            height={24}
                                         />
                                     </div>
                                     <div className="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
                                         <Player
                                             url={music.src}
-                                            width={40}
-                                            height={40}
+                                            width={24}
+                                            height={24}
                                         />
                                     </div>
                                     <div className="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition">
                                         <DeleteBtn
-                                            width={40}
-                                            height={40}
+                                            width={24}
+                                            height={24}
+                                            handleClick={() => handleDelete(music.id)}
                                         />
                                     </div>
                                 </div>

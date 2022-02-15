@@ -46,7 +46,7 @@ const useAudio = url => {
     return [playing, toggle];
 };
 
-const Player = ({ url }) => {
+const Player = ({ url, width, height }) => {
     const [playing, toggle] = useAudio(url);
 
     return (
@@ -54,9 +54,9 @@ const Player = ({ url }) => {
         <div onClick={toggle} className="">
             {
                 playing ?
-                    <PauseBtn width={40} height={40} />
+                    <PauseBtn width={width} height={height} />
                     :
-                    <PlayBtn width={40} height={40} />
+                    <PlayBtn width={width} height={height} />
             }
         </div>
     );

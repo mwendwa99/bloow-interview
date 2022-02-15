@@ -114,20 +114,27 @@ export const MusicProvider = ({ children }) => {
 
     // upload music
     const uploadMusic = (userMusic) => {
-        // add music to music array
-        setMusic([...music, userMusic]);
-        // save to local storage
-        localStorage.setItem('music', JSON.stringify(music));
+        if (user) {
+            // set music
+            setMusic([...music, userMusic]);
+            // save to local storage
+            localStorage.setItem('music', JSON.stringify([...music, userMusic]));
+            toast.success('Song uploaded successfully');
+        } else {
+            toast.error('You must be logged in to upload music');
+        }
     };
     // delete music
     const deleteMusic = (id) => {
-        // if music is not empty
-        if (music) {
+        if (user) {
             // set music
             const newMusic = music.filter((music) => music.id !== id);
             setMusic(newMusic);
             // save to local storage
             localStorage.setItem('music', JSON.stringify(newMusic));
+            toast.success('Song deleted');
+        } else {
+            toast.error('You must be logged in to delete music');
         }
     };
 
