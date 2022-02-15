@@ -4,8 +4,9 @@ import Player from "../Player/Player";
 // music default
 import { useMusic } from "../../provider/MusicProvider";
 
-const MusicCard = ({ url }) => {
-    let { defaultMusic } = useMusic();
+const MusicCard = () => {
+    let { defaultMusic, isPlaying } = useMusic();
+
 
     return (
         <section className="grid place-items-center h-full bg-gray-800 p-5">
@@ -17,7 +18,7 @@ const MusicCard = ({ url }) => {
                 {
                     defaultMusic.map((music, index) =>
                         // return (
-                        <div key={index} className="bg-gray-900 shadow-lg rounded p-3">
+                        <div key={music.id} className="bg-gray-900 shadow-lg rounded p-3">
                             <div className="group relative">
                                 <img
                                     className="w-full md:w-72 block rounded"
